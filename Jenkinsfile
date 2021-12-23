@@ -1,10 +1,10 @@
 pipeline {
-  agent any
+  agent { label 'WORKSTATION' }
 
   stages {
-    stage('sh command') {
+    stage('sh commands') {
       steps {
-        sh 'uptime'
+        sh 'uptime;uname -a;'
       }
     }
   }
