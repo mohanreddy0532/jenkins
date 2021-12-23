@@ -1,11 +1,12 @@
 pipeline {
-    agent any
+  agent any
 
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World from Git'
-            }
-        }
+  stages {
+    stage('sh command') {
+      steps {
+        sh 'uptime'
+      }
     }
+  }
+
 }
