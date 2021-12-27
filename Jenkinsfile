@@ -150,32 +150,65 @@
 
 // when condition
 
+// pipeline {
+//  agent any
+//
+//  parameters {
+//    choice(name: 'ENV', choices: ['DEV', 'PROD'], description: 'Choose Env')
+//  }
+//
+//  stages{
+//
+//    stage('DEV') {
+//      when {
+//        environment name: 'ENV', value: 'DEV'
+//      }
+//      steps {
+//        echo "DEV"
+//      }
+//    }
+//
+//    stage('PROD') {
+//      when {
+//        environment name: 'ENV', value: 'PROD'
+//      }
+//      steps {
+//        echo "PROD"
+//      }
+//    }
+//
+//  }
+// }
+
+// parallel stages
+
 pipeline {
- agent any
+  agent any
+  stages {
 
- parameters {
-   choice(name: 'ENV', choices: ['DEV', 'PROD'], description: 'Choose Env')
- }
+    stage('One-Sequential') {
+      steps {
+        sh 'sleep 45'
+      }
+    }
 
- stages{
+    stage('Two-Parallel') {
+      parallel {
 
-   stage('DEV') {
-     when {
-       environment name: 'ENV', value: 'DEV'
-     }
-     steps {
-       echo "DEV"
-     }
-   }
+        stage('Two1') {
+          steps {
+            sh 'sleep 60'
+          }
+        }
 
-   stage('PROD') {
-     when {
-       environment name: 'ENV', value: 'PROD'
-     }
-     steps {
-       echo "PROD"
-     }
-   }
+        stage('Two2') {
+          steps {
+            sh 'sleep 90'
+          }
+        }
 
- }
+      }
+    }
+
+  }
 }
