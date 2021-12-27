@@ -1,15 +1,15 @@
-pipeline {
-  agent { label 'WORKSTATION' }
-
-  stages {
-    stage('sh commands') {
-      steps {
-        sh 'uptime;uname -a;'
-      }
-    }
-  }
-
-}
+// pipeline {
+//   agent { label 'WORKSTATION' }
+//
+//   stages {
+//     stage('sh commands') {
+//       steps {
+//         sh 'uptime;uname -a;'
+//       }
+//     }
+//   }
+//
+// }
 //===============================================
 //node {
 //  stage('One') {
@@ -109,21 +109,21 @@ pipeline {
 //  }
 // }
 //=======Triggers Example==============
-// pipeline {
-//  agent {
-//    label 'WORKSTATION'
-//  }
-//  tools {
-//    maven 'maven-3.8.5'
-//  }
-//  stages {
-//    stage('Maven') {
-//      steps {
-//        sh 'mvn --version'
-//      }
-//    }
-//  }
-// }
+pipeline {
+ agent {
+   label 'WORKSTATION'
+ }
+ tools {
+   maven 'maven-3.8.5'
+ }
+ stages {
+   stage('Maven') {
+     steps {
+       sh 'mvn --version'
+     }
+   }
+ }
+}
 
 
 //=======Tools Example==============
