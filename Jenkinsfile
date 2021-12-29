@@ -116,7 +116,7 @@ pipeline {
    label 'WORKSTATION'
  }
  tools {
-   maven 'maven-3.8.4'
+   maven 'maven-3.5.0'
  }
  stages {
    stage('Maven') {
