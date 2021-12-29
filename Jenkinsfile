@@ -111,21 +111,21 @@
 //=======Triggers Example==============
 
 //=======Tools Example==============
-// pipeline {
-//  agent {
-//    label 'WORKSTATION'
-//  }
-//  tools {
-//    maven 'maven-3.8.4'
-//  }
-//  stages {
-//    stage('Maven') {
-//      steps {
-//        sh 'mvn --version'
-//      }
-//    }
-//  }
-// }
+pipeline {
+ agent {
+   label 'WORKSTATION'
+ }
+ tools {
+   maven 'maven-3.8.4'
+ }
+ stages {
+   stage('Maven') {
+     steps {
+       sh 'mvn --version'
+     }
+   }
+ }
+}
 
 //=======Input Example==============
 //
