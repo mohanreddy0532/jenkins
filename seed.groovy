@@ -19,6 +19,7 @@
 //    }
 //  }
 //}
+//
 
 pipelineJob('roboshop-ansible') {
     configure { flowdefinition ->
