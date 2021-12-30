@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ansible/ansible.iml" filepath="$PROJECT_DIR$/../ansible/ansible.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jenkins.iml" filepath="$PROJECT_DIR$/jenkins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../roboshop/roboshop.iml" filepath="$PROJECT_DIR$/../roboshop/roboshop.iml" />
+    </modules>
+  </component>
+</project>
