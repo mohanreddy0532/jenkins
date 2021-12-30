@@ -1,16 +1,16 @@
 //Jenkins file
-// pipeline {
-//   agent { label 'WORKSTATION' }
-//
-//   stages {
-//     stage('sh commands') {
-//       steps {
-//         sh 'uptime;uname -a;'
-//       }
-//     }
-//   }
-//
-// }
+pipeline {
+  agent { label 'WORKSTATION' }
+
+  stages {
+    stage('sh commands') {
+      steps {
+        sh 'uptime;uname -a;'
+      }
+    }
+  }
+
+}
 //===============================================
 //node {
 //  stage('One') {
@@ -112,21 +112,21 @@
 //=======Triggers Example==============
 
 //=======Tools Example==============
-pipeline {
- agent {
-   label 'WORKSTATION'
- }
- tools {
-   maven 'maven-3.8.4'
- }
- stages {
-   stage('Maven') {
-     steps {
-       sh 'mvn --version'
-     }
-   }
- }
-}
+// pipeline {
+//  agent {
+//    label 'WORKSTATION'
+//  }
+//  tools {
+//    maven 'maven-3.8.4'
+//  }
+//  stages {
+//    stage('Maven') {
+//      steps {
+//        sh 'mvn --version'
+//      }
+//    }
+//  }
+// }
 
 //=======Input Example==============
 //
