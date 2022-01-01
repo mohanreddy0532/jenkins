@@ -1,16 +1,16 @@
 //Jenkins file Sample examples
-// pipeline {
-//   agent { label 'WORKSTATION' }
-//
-//   stages {
-//     stage('sh commands') {
-//       steps {
-//         sh 'uptime;uname -a;'
-//       }
-//     }
-//   }
-//
-// }
+pipeline {
+  agent { label 'WORKSTATION' }
+
+  stages {
+    stage('sh commands') {
+      steps {
+        sh 'uptime;uname -a;'
+      }
+    }
+  }
+
+}
 //===============================================
 //node {
 //  stage('One') {
