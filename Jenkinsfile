@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('sh commands') {
       steps {
-        sh 'uptime;uname -a;'
+        sh 'uptime;uname -a;df -h'
       }
     }
   }
