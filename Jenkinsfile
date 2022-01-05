@@ -1,26 +1,26 @@
 //Jenkins file Sample examples
-pipeline {
-  agent { label 'WORKSTATION' }
-
-  stages {
-    stage('sh commands') {
-      steps {
-        sh 'uptime;uname -a;df -h'
-      }
-    }
-  }
-
-}
-//===============================================
-//node {
-//  stage('One') {
-//    sh 'echo Hello'
-//  }
-//  stage('Two') {
-//    sh 'echo Hello'
-//  }
-//}
+// pipeline {
+//   agent { label 'WORKSTATION' }
 //
+//   stages {
+//     stage('sh commands') {
+//       steps {
+//         sh 'uptime;uname -a;df -h'
+//       }
+//     }
+//   }
+//
+//}
+//===============================================
+node {
+ stage('One') {
+   sh 'echo Hello'
+ }
+ stage('Two') {
+   sh 'echo Hello'
+ }
+}
+
 
 // ========Agent example==========
 //
