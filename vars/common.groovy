@@ -23,10 +23,39 @@ def prepareArtifacts() {
     sh '''
       npm install 
       zip -r ${COMPONENT}-${gitTag}.zip node_modules server.js
-      ls -ltr
     '''
   }
-  // Java
-  // Python
-  // Golang
+
+  if(env.PROG_LANG_NAME == "java" && env.PROG_LANG_VERSION == "1.8") {
+    sh '''
+      mvn clean package 
+      mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+      zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}.jar
+    '''
+  }
+
+  if(env.PROG_LANG_NAME == "python" && env.PROG_LANG_VERSION == "3") {
+    sh '''
+      zip -r ${COMPONENT}-${gitTag}.zip requirements.txt *.py ${COMPONENT}.ini
+    '''
+  }
+
+
+  if(env.PROG_LANG_NAME == "golang" && env.PROG_LANG_VERSION == "1.5") {
+    sh '''
+      go mod init dispatch
+      go get 
+      go build 
+      zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}
+    '''
+  }
+
+  if(env.PROG_LANG_NAME == "angular") {
+    sh '''
+      cd static
+      zip -r ../${COMPONENT}-${gitTag}.zip * 
+    '''
+  }
+
+
 }
