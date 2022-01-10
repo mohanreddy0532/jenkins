@@ -1,16 +1,16 @@
 //Jenkins file Sample examples
-// pipeline {
-//   agent { label 'WORKSTATION' }
-//
-//   stages {
-//     stage('sh commands') {
-//       steps {
-//         sh 'uptime;uname -a;df -h'
-//       }
-//     }
-//   }
-//
-// }
+pipeline {
+  agent { label 'WORKSTATION' }
+
+  stages {
+    stage('sh commands') {
+      steps {
+        sh 'uptime;uname -a;df -h'
+      }
+    }
+  }
+
+}
 //===============================================
 // node {
 //  stage('One') {
@@ -24,26 +24,26 @@
 
 // ========Agent example==========
 
-pipeline {
- agent any
- agent none
- agent {
-   node { 'workstation'}
- }
- agent {
-   label { 'ANSIBLE && CENTOS' }
- }
-
- stages {
-   stage('sample') {
-     agent { label 'UBUNTU' }
-     steps {
-       sh 'echo heloo'
-     }
-   }
- }
-
-}
+// pipeline {
+//  agent any
+//  agent none
+//  agent {
+//    node { 'workstation'}
+//  }
+//  agent {
+//    label { 'ANSIBLE && CENTOS' }
+//  }
+//
+//  stages {
+//    stage('sample') {
+//      agent { label 'UBUNTU' }
+//      steps {
+//        sh 'echo heloo'
+//      }
+//    }
+//  }
+//
+// }
 
 //===========Options example=====================
 
