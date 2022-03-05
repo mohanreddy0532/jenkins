@@ -1,0 +1,28 @@
+stages:
+  - stage: SonarQube
+    jobs:
+      - job: SonarQube
+        steps:
+          - script: |
+              echo SonarQube Checks
+  - stage: UnitTests
+    jobs:
+      - job: UnitTests
+        steps:
+          - script: |
+              echo UnitTests Checks
+  - stage: DockerBuild
+    jobs:
+      - job: DockerBuild
+        steps:
+          - script: |
+              docker build -t ${COMPONENT} .
+  - stage: DockerPush
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/tags/')
+    jobs:
+      - job: DockerPush
+        steps:
+          - script: |
+              aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 633788536644.dkr.ecr.us-east-1.amazonaws.com
+              docker tag ${COMPONENT}:latest 633788536644.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
+              docker push 633788536644.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
