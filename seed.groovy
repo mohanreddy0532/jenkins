@@ -40,31 +40,31 @@
 //    }
 //}
 //==============================================One component only================================================
-//folder('CI-Pipelines') {
-//    displayName('CI-Pipelines')
-//    description('CI-Pipelines')
-//}
-//
-//pipelineJob('CI-Pipelines/cart') {
-//    configure { flowdefinition ->
-//        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-//            'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
-//                'userRemoteConfigs' {
-//                    'hudson.plugins.git.UserRemoteConfig' {
-//                        'url'('https://github.com/mohanreddy0532/cart.git')
-//                    }
-//                }
-//                'branches' {
-//                    'hudson.plugins.git.BranchSpec' {
-//                        'name'('*/main')
-//                    }
-//                }
-//            }
-//            'scriptPath'('Jenkinsfile')
-//                    'lightweight'(true)
-//        }
-//    }
-//}
+folder('CI-Pipelines') {
+    displayName('CI-Pipelines')
+    description('CI-Pipelines')
+}
+
+pipelineJob('CI-Pipelines/cart') {
+    configure { flowdefinition ->
+        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+            'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+                'userRemoteConfigs' {
+                    'hudson.plugins.git.UserRemoteConfig' {
+                        'url'('https://github.com/mohanreddy0532/cart.git')
+                    }
+                }
+                'branches' {
+                    'hudson.plugins.git.BranchSpec' {
+                        'name'('*/main')
+                    }
+                }
+            }
+            'scriptPath'('Jenkinsfile')
+                    'lightweight'(true)
+        }
+    }
+}
 //==================CI-Pipeline===============All components with for loop in groovy==============
 //folder('CI-Pipelines') {
 //    displayName('CI-Pipelines')
@@ -99,31 +99,31 @@
 //    }
 //}
 //======================================Terraform=================
-folder('Mutable') {
-    displayName('Mutable')
-    description('Mutable')
-}
-
-pipelineJob('Mutable/VPC') {
-    configure { flowdefinition ->
-        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-            'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
-                'userRemoteConfigs' {
-                    'hudson.plugins.git.UserRemoteConfig' {
-                        'url'('https://github.com/mohanreddy0532/terraform-0322-vpc.git')
-                    }
-                }
-                'branches' {
-                    'hudson.plugins.git.BranchSpec' {
-                        'name'('*/main')
-                    }
-                }
-            }
-            'scriptPath'('Jenkinsfile')
-            'lightweight'(true)
-        }
-    }
-}
+//folder('Mutable') {
+//    displayName('Mutable')
+//    description('Mutable')
+//}
+//
+//pipelineJob('Mutable/VPC') {
+//    configure { flowdefinition ->
+//        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+//            'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+//                'userRemoteConfigs' {
+//                    'hudson.plugins.git.UserRemoteConfig' {
+//                        'url'('https://github.com/mohanreddy0532/terraform-0322-vpc.git')
+//                    }
+//                }
+//                'branches' {
+//                    'hudson.plugins.git.BranchSpec' {
+//                        'name'('*/main')
+//                    }
+//                }
+//            }
+//            'scriptPath'('Jenkinsfile')
+//            'lightweight'(true)
+//        }
+//    }
+//}
 //
 //pipelineJob('Mutable/DB') {
 //    configure { flowdefinition ->
