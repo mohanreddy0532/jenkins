@@ -23,6 +23,6 @@ stages:
       - job: DockerPush
         steps:
           - script: |
-              aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 633788536644.dkr.ecr.us-east-1.amazonaws.com
-              docker tag ${COMPONENT}:latest 633788536644.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
-              docker push 633788536644.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
+              aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 648406718363.dkr.ecr.us-east-1.amazonaws.com
+              docker tag ${COMPONENT}:latest 648406718363.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
+              docker push 648406718363.dkr.ecr.us-east-1.amazonaws.com/${COMPONENT}:${BUILD_SOURCEBRANCHNAME}
